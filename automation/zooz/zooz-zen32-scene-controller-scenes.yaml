@@ -1,0 +1,33 @@
+# onAlso automation blueprint for Zooz ZEN32 Scene Controller
+# This blueprint is designed for use with the ZWave JS integration.
+---
+blueprint:
+  name: Zooz ZEN32 Scene Controller
+  description: Create automations for the Zooz ZEN32 Scene Controller.
+  domain: automation
+  input:
+    zooz_zen32:
+      name: Zooz ZEN32
+      description: Available Zooz ZEN32 switches.
+      selector:
+        device:
+          integration: zwave_js
+          manufacturer: Zooz
+          model: ZEN32
+          multiple: true
+  source_url: https://github.com/onalso/hassio-blueprints/blob/master/automation/zooz/zooz-zen32-scene-controller-scenes.yaml
+mode: single
+max_exceeded: silent
+trigger:
+  - platform: event
+    event_type: zwave_js_value_notification
+    event_data:
+      command_class_name: Central Scene
+      device_id: !input 'zooz_zen30'
+action:
+  - variables:
+    property_key_name: '{{ trigger.event.data.property_key_name }}'
+    label: '{{ trigger.event.data.label }}'
+    command_class_name: '{{ trigger.event.data.command_class_name }}'
+    value: '{{ trigger.event.data.value }}'
+

@@ -1,0 +1,31 @@
+# onAlso automation blueprint for Zooz ZEN30 Double Switch
+# This blueprint is designed for use with the ZWave JS integration.
+---
+blueprint:
+  name: Zooz ZEN30 Double Switch
+  description: Create automations for the Zooz ZEN30 Double Switch.
+  domain: automation
+  input:
+    zooz_zen30:
+      name: Zooz ZEN30
+      description: Available Zooz ZEN30 Double Switchs.
+      selector:
+        device:
+          integration: zwave_js
+          manufacturer: Zooz
+          model: ZEN30
+          multiple: true
+  source_url: https://github.com/onalso/hassio-blueprints/blob/master/automation/zooz/zooz-zen30-double-switch-scenes.yaml
+mode: single
+max_exceeded: silent
+trigger:
+  - platform: event
+    event_type: zwave_js_value_notification
+    event_data:
+      command_class_name: Central Scene
+      device_id: !input 'zooz_zen30'
+action:
+  - variables:
+    scene_label: '{{ trigger.event.data.label }}'
+    scene_value: '{{ trigger.event.data.value }}'
+
