@@ -1,19 +1,19 @@
-# Lit Responsibly automation blueprint for Zooz ZEN32 Scene Controller
+# Lit Responsibly automation blueprint for Inovelli VZW31-SN Red Series Switch
 # This blueprint is designed for use with the ZWave JS integration.
 ---
 blueprint:
-  name: Zooz ZEN32 Scene Controller
-  description: Create automations for the Zooz ZEN32 Scene Controller.
+  name: Inovelli VZW31-SN Red Series Switch
+  description: Create automations for the Inovelli VZW31-SN Red Series Switch.
   domain: automation
   input:
-    zooz_zen32:
-      name: Zooz ZEN32
-      description: Available Zooz ZEN32 devices.
+    inovelli_vzw31sn:
+      name: Inovelli VZW31-SN
+      description: Available Inovelli VZW31-SN devices.
       selector:
         device:
           integration: zwave_js
-          manufacturer: Zooz
-          model: ZEN32
+          manufacturer: Inovelli
+          model: VZW31-SN
           multiple: true
     command_class:
       name: Trigger Command Class
@@ -46,32 +46,38 @@ blueprint:
       collapsed: true
       input:
         button_1:
-          name: Button 1 (Top Large) Press
-          description: Action to run when Button 1 is pressed one time.
+          name: Button A (On/Up) Press
+          description: Action to run when Button A is pressed one time.
           default: []
           selector:
             action: {}
         button_2:
-          name: Button 2 (Middle Left) Press
-          description: Action to run when Button 2 is pressed one time.
+          name: Button B (Off/Down) Press
+          description: Action to run when Button B is pressed one time.
           default: []
           selector:
             action: {}
         button_3:
-          name: Button 3 (Middle Right) Press
-          description: Action to run when Button 3 is pressed one time.
+          name: Button C (Config) Press
+          description: Action to run when Button C is pressed one time.
           default: []
           selector:
             action: {}
         button_4:
-          name: Button 4 (Lower Left) Press
-          description: Action to run when Button 4 is pressed one time.
+          name: Aux Button A (On/Up) Press
+          description: Action to run when Aux Button A is pressed one time.
           default: []
           selector:
             action: {}
         button_5:
-          name: Button 5 (Lower Right) Press
-          description: Action to run when Button 5 is pressed one time.
+          name: Aux Button B (Off/Down) Press
+          description: Action to run when Aux Button B is pressed one time.
+          default: []
+          selector:
+            action: {}
+        button_6:
+          name: Aux Button C (Config) Press
+          description: Action to run when Aux Button C is pressed one time.
           default: []
           selector:
             action: {}
@@ -82,62 +88,74 @@ blueprint:
       collapsed: true
       input:
         button_1_hold:
-          name: Button 1 (Top Large) Hold
-          description: Action to run when Button 1 is pressed and held.
+          name: Button A (On/Up) Hold
+          description: Action to run when Button A is pressed and held.
           default: []
           selector:
             action: {}
         button_1_release:
-          name: Button 1 (Top Large) Hold Release
-          description: Action to run when Button 1 is released from hold.
+          name: Button A (On/Up) Hold Release
+          description: Action to run when Button A is released from hold.
           default: []
           selector:
             action: {}
         button_2_hold:
-          name: Button 2 (Middle Left) Hold
-          description: Action to run when Button 2 is pressed and held.
+          name: Button B (Off/Down) Hold
+          description: Action to run when Button B is pressed and held.
           default: []
           selector:
             action: {}
         button_2_release:
-          name: Button 2 (Middle Left) Hold Release
-          description: Action to run when Button 2 is released from hold.
+          name: Button B (Off/Down) Hold Release
+          description: Action to run when Button B is released from hold.
           default: []
           selector:
             action: {}
         button_3_hold:
-          name: Button 3 (Middle Right) Hold
-          description: Action to run when Button 3 is pressed and held.
+          name: Button C (Config) Hold
+          description: Action to run when Button C is pressed and held.
           default: []
           selector:
             action: {}
         button_3_release:
-          name: Button 3 (Middle Right) Hold Release
-          description: Action to run when Button 3 is released from hold.
+          name: Button C (Config) Hold Release
+          description: Action to run when Button C is released from hold.
           default: []
           selector:
             action: {}
         button_4_hold:
-          name: Button 4 (Lower Left) Hold
-          description: Action to run when Button 4 is pressed and held.
+          name: Aux Button A (On/Up) Hold
+          description: Action to run when Aux Button A is pressed and held.
           default: []
           selector:
             action: {}
         button_4_release:
-          name: Button 4 (Lower Left) Hold Release
-          description: Action to run when Button 4 is released from hold.
+          name: Aux Button A (On/Up) Hold Release
+          description: Action to run when Aux Button A is released from hold.
           default: []
           selector:
             action: {}
         button_5_hold:
-          name: Button 5 (Lower Right) Hold
-          description: Action to run when Button 5 is pressed and held.
+          name: Aux Button B (Off/Down) Hold
+          description: Action to run when Aux Button B is pressed and held.
           default: []
           selector:
             action: {}
         button_5_release:
-          name: Button 5 (Lower Right) Hold Release
-          description: Action to run when Button 5 is released from hold.
+          name: Aux Button B (Off/Down) Hold Release
+          description: Action to run when Aux Button B is released from hold.
+          default: []
+          selector:
+            action: {}
+        button_6_hold:
+          name: Aux Button C (Config) Hold
+          description: Action to run when Aux Button C is pressed and held.
+          default: []
+          selector:
+            action: {}
+        button_6_release:
+          name: Aux Button C (Config) Hold Release
+          description: Action to run when Aux Button C is released from hold.
           default: []
           selector:
             action: {}
@@ -148,32 +166,38 @@ blueprint:
       collapsed: true
       input:
         button_1_2x:
-          name: Button 1 (Top Large) Double Press
-          description: Action to run when Button 1 is pressed 2 times.
+          name: Button A (On/Up) Double Press
+          description: Action to run when Button A is pressed 2 times.
           default: []
           selector:
             action: {}
         button_2_2x:
-          name: Button 2 (Middle Left) Double Press
-          description: Action to run when Button 2 is pressed 2 times.
+          name: Button B (Off/Down) Double Press
+          description: Action to run when Button B is pressed 2 times.
           default: []
           selector:
             action: {}
         button_3_2x:
-          name: Button 3 (Middle Right) Double Press
-          description: Action to run when Button 3 is pressed 2 times.
+          name: Button C (Config) Double Press
+          description: Action to run when Button C is pressed 2 times.
           default: []
           selector:
             action: {}
         button_4_2x:
-          name: Button 4 (Lower Left) Double Press
-          description: Action to run when Button 4 is pressed 2 times.
+          name: Aux Button A (On/Up) Double Press
+          description: Action to run when Aux Button A is pressed 2 times.
           default: []
           selector:
             action: {}
         button_5_2x:
-          name: Button 5 (Lower Right) Double Press
-          description: Action to run when Button 5 is pressed 2 times.
+          name: Aux Button B (Off/Down) Double Press
+          description: Action to run when Aux Button B is pressed 2 times.
+          default: []
+          selector:
+            action: {}
+        button_6_2x:
+          name: Aux Button C (Config) Double Press
+          description: Action to run when Aux Button C is pressed 2 times.
           default: []
           selector:
             action: {}
@@ -184,32 +208,38 @@ blueprint:
       collapsed: true
       input:
         button_1_3x:
-          name: Button 1 (Top Large) Triple Press
-          description: Action to run when Button 1 is pressed 3 times.
+          name: Button A (On/Up) Triple Press
+          description: Action to run when Button A is pressed 3 times.
           default: []
           selector:
             action: {}
         button_2_3x:
-          name: Button 2 (Middle Left) Triple Press
-          description: Action to run when Button 2 is pressed 3 times.
+          name: Button B (Off/Down) Triple Press
+          description: Action to run when Button B is pressed 3 times.
           default: []
           selector:
             action: {}
         button_3_3x:
-          name: Button 3 (Middle Right) Triple Press
-          description: Action to run when Button 3 is pressed 3 times.
+          name: Button C (Config) Triple Press
+          description: Action to run when Button C is pressed 3 times.
           default: []
           selector:
             action: {}
         button_4_3x:
-          name: Button 4 (Lower Left) Triple Press
-          description: Action to run when Button 4 is pressed 3 times.
+          name: Aux Button A (On/Up) Triple Press
+          description: Action to run when Aux Button A is pressed 3 times.
           default: []
           selector:
             action: {}
         button_5_3x:
-          name: Button 5 (Lower Right) Triple Press
-          description: Action to run when Button 5 is pressed 3 times.
+          name: Aux Button B (Off/Down) Triple Press
+          description: Action to run when Aux Button B is pressed 3 times.
+          default: []
+          selector:
+            action: {}
+        button_6_3x:
+          name: Aux Button C (Config) Triple Press
+          description: Action to run when Aux Button C is pressed 3 times.
           default: []
           selector:
             action: {}
@@ -220,32 +250,38 @@ blueprint:
       collapsed: true
       input:
         button_1_4x:
-          name: Button 1 (Top Large) Quadruple Press
-          description: Action to run when Button 1 is pressed 4 times.
+          name: Button A (On/Up) Quadruple Press
+          description: Action to run when Button A is pressed 4 times.
           default: []
           selector:
             action: {}
         button_2_4x:
-          name: Button 2 (Middle Left) Quadruple Press
-          description: Action to run when Button 2 is pressed 4 times.
+          name: Button B (Off/Down) Quadruple Press
+          description: Action to run when Button B is pressed 4 times.
           default: []
           selector:
             action: {}
         button_3_4x:
-          name: Button 3 (Middle Right) Quadruple Press
-          description: Action to run when Button 3 is pressed 4 times.
+          name: Button C (Config) Quadruple Press
+          description: Action to run when Button C is pressed 4 times.
           default: []
           selector:
             action: {}
         button_4_4x:
-          name: Button 4 (Lower Left) Quadruple Press
-          description: Action to run when Button 4 is pressed 4 times.
+          name: Aux Button A (On/Up) Quadruple Press
+          description: Action to run when Aux Button A is pressed 4 times.
           default: []
           selector:
             action: {}
         button_5_4x:
-          name: Button 5 (Lower Right) Quadruple Press
-          description: Action to run when Button 5 is pressed 4 times.
+          name: Aux Button B (Off/Down) Quadruple Press
+          description: Action to run when Aux Button B is pressed 4 times.
+          default: []
+          selector:
+            action: {}
+        button_6_4x:
+          name: Aux Button C (Config) Quadruple Press
+          description: Action to run when Aux Button C is pressed 4 times.
           default: []
           selector:
             action: {}
@@ -256,40 +292,46 @@ blueprint:
       collapsed: true
       input:
         button_1_5x:
-          name: Button 1 (Top Large) Quintuple Press
-          description: Action to run when Button 1 is pressed 5 times.
+          name: Button A (On/Up) Quintuple Press
+          description: Action to run when Button A is pressed 5 times.
           default: []
           selector:
             action: {}
         button_2_5x:
-          name: Button 2 (Middle Left) Quintuple Press
-          description: Action to run when Button 2 is pressed 5 times.
+          name: Button B (Off/Down) Quintuple Press
+          description: Action to run when Button B is pressed 5 times.
           default: []
           selector:
             action: {}
         button_3_5x:
-          name: Button 3 (Middle Right) Quintuple Press
-          description: Action to run when Button 3 is pressed 5 times.
+          name: Button C (Config) Quintuple Press
+          description: Action to run when Button C is pressed 5 times.
           default: []
           selector:
             action: {}
         button_4_5x:
-          name: Button 4 (Lower Left) Quintuple Press
-          description: Action to run when Button 4 is pressed 5 times.
+          name: Aux Button A (On/Up) Quintuple Press
+          description: Action to run when Aux Button A is pressed 5 times.
           default: []
           selector:
             action: {}
         button_5_5x:
-          name: Button 5 (Lower Right) Quintuple Press
-          description: Action to run when Button 5 is pressed 5 times.
+          name: Aux Button B (Off/Down) Quintuple Press
+          description: Action to run when Aux Button B is pressed 5 times.
           default: []
           selector:
             action: {}
-  source_url: https://github.com/LitResponsibly/hassio-blueprints/blob/master/automation/zooz/zooz-zen32-scene-controller-scenes.yaml
+        button_6_5x:
+          name: Aux Button C (Config) Quintuple Press
+          description: Action to run when Aux Button C is pressed 5 times.
+          default: []
+          selector:
+            action: {}
+  source_url: https://github.com/LitResponsibly/hassio-blueprints/blob/master/automation/inovelli/inovelli-vzw31sn-red-series-switch-scenes.yaml
 mode: !input automation_mode
 max_exceeded: silent
 variables:
-  device_ids: !input zooz_zen32
+  device_ids: !input inovelli_vzw31sn
   command_class: !input command_class
 trigger:
   - platform: event
@@ -391,4 +433,21 @@ action:
         sequence: !input button_5_hold
       - conditions: '{{ value == ''KeyReleased'' }}'
         sequence: !input button_5_release
+  - conditions: '{{ property_key == ''006'' }}'
+    sequence:
+    - choose:
+      - conditions: '{{ value == ''KeyPressed'' }}'
+        sequence: !input button_6
+      - conditions: '{{ value == ''KeyPressed2x'' }}'
+        sequence: !input button_6_2x
+      - conditions: '{{ value == ''KeyPressed3x'' }}'
+        sequence: !input button_6_3x
+      - conditions: '{{ value == ''KeyPressed4x'' }}'
+        sequence: !input button_6_4x
+      - conditions: '{{ value == ''KeyPressed5x'' }}'
+        sequence: !input button_6_5x
+      - conditions: '{{ value == ''KeyHeldDown'' }}'
+        sequence: !input button_6_hold
+      - conditions: '{{ value == ''KeyReleased'' }}'
+        sequence: !input button_6_release
 

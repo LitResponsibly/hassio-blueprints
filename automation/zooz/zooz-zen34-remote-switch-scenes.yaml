@@ -1,0 +1,217 @@
+# Lit Responsibly automation blueprint for Zooz ZEN34 Remote Switch
+# This blueprint is designed for use with the ZWave JS integration.
+---
+blueprint:
+  name: Zooz ZEN34 Remote Switch
+  description: Create automations for the Zooz ZEN37 Remote Switch.
+  domain: automation
+  input:
+    zooz_zen34:
+      name: Zooz ZEN34
+      description: Available Zooz ZEN34 devices.
+      selector:
+        device:
+          integration: zwave_js
+          manufacturer: Zooz
+          model: ZEN34
+          multiple: true
+    command_class:
+      name: Trigger Command Class
+      description: Command class to trigger the automation.
+      default: '91'
+      selector:
+        select:
+          options:
+            - value: '91'
+              label: Central Scene
+            - value: '32'
+              label: Basic
+            - value: '37'
+              label: Switch Binary
+    automation_mode:
+      name: Automation mode
+      description: See https://www.home-assistant.io/docs/automation/modes/
+      default: single
+      selector:
+        select:
+          options:
+            - single
+            - restart
+            - queued
+            - parallel
+    single_press:
+      name: Single Press
+      icon: mdi:gesture-tap
+      description: Actions for single button presses.
+      collapsed: true
+      input:
+        button_1:
+          name: Button 1 (On/Up) Press
+          description: Action to run when Button 1 is pressed one time.
+          default: []
+          selector:
+            action: {}
+        button_2:
+          name: Button 2 (Off/Down) Press
+          description: Action to run when Button 2 is pressed one time.
+          default: []
+          selector:
+            action: {}
+    hold_release:
+      name: Hold and Release
+      icon: mdi:gesture-tap-hold
+      description: Actions when a button is held and released.
+      collapsed: true
+      input:
+        button_1_hold:
+          name: Button 1 (On/Up) Hold
+          description: Action to run when Button 1 is pressed and held.
+          default: []
+          selector:
+            action: {}
+        button_1_release:
+          name: Button 1 (On/Up) Hold Release
+          description: Action to run when Button 1 is released from hold.
+          default: []
+          selector:
+            action: {}
+        button_2_hold:
+          name: Button 2 (Off/Down) Hold
+          description: Action to run when Button 2 is pressed and held.
+          default: []
+          selector:
+            action: {}
+        button_2_release:
+          name: Button 2 (Off/Down) Hold Release
+          description: Action to run when Button 2 is released from hold.
+          default: []
+          selector:
+            action: {}
+    double_press:
+      name: Double Press
+      icon: mdi:gesture-double-tap
+      description: Actions when a button is pressed 2 times.
+      collapsed: true
+      input:
+        button_1_2x:
+          name: Button 1 (On/Up) Double Press
+          description: Action to run when Button 1 is pressed 2 times.
+          default: []
+          selector:
+            action: {}
+        button_2_2x:
+          name: Button 2 (Off/Down) Double Press
+          description: Action to run when Button 2 is pressed 2 times.
+          default: []
+          selector:
+            action: {}
+    triple_press:
+      name: Triple Press
+      icon: mdi:gesture-double-tap
+      description: Actions when a button is pressed 3 times.
+      collapsed: true
+      input:
+        button_1_3x:
+          name: Button 1 (On/Up) Triple Press
+          description: Action to run when Button 1 is pressed 3 times.
+          default: []
+          selector:
+            action: {}
+        button_2_3x:
+          name: Button 2 (Off/Down) Triple Press
+          description: Action to run when Button 2 is pressed 3 times.
+          default: []
+          selector:
+            action: {}
+    quadruple_press:
+      name: Quadruple Press
+      icon: mdi:gesture-double-tap
+      description: Actions when a button is pressed 4 times.
+      collapsed: true
+      input:
+        button_1_4x:
+          name: Button 1 (On/Up) Quadruple Press
+          description: Action to run when Button 1 is pressed 4 times.
+          default: []
+          selector:
+            action: {}
+        button_2_4x:
+          name: Button 2 (Off/Down) Quadruple Press
+          description: Action to run when Button 2 is pressed 4 times.
+          default: []
+          selector:
+            action: {}
+    quintuple_press:
+      name: Quintuple Press
+      icon: mdi:gesture-double-tap
+      description: Actions when a button is pressed 5 times.
+      collapsed: true
+      input:
+        button_1_5x:
+          name: Button 1 (On/Up) Quintuple Press
+          description: Action to run when Button 1 is pressed 5 times.
+          default: []
+          selector:
+            action: {}
+        button_2_5x:
+          name: Button 2 (Off/Down) Quintuple Press
+          description: Action to run when Button 2 is pressed 5 times.
+          default: []
+          selector:
+            action: {}
+  source_url: https://github.com/LitResponsibly/hassio-blueprints/blob/master/automation/zooz/zooz-zen34-remote-switch-scenes.yaml
+mode: !input automation_mode
+max_exceeded: silent
+variables:
+  device_ids: !input zooz_zen34
+  command_class: !input command_class
+trigger:
+  - platform: event
+    event_type: zwave_js_value_notification
+condition: '{{ trigger.event.data.command_class|int(0) == command_class|int(0) and trigger.event.data.device_id in device_ids }}'
+action:
+- variables:
+    command_class_name: '{{ trigger.event.data.command_class_name }}'
+    property_key: '{{ trigger.event.data.property_key }}'
+    label: '{{ trigger.event.data.label }}'
+    value: '{{ trigger.event.data.value }}'
+- service: logbook.log
+  data:
+    name: Z-Wave JS
+    message: 'received event: {{ command_class_name }} - {{ label }} - {{ value }}'
+- choose:
+  - conditions: '{{ property_key == ''001'' }}'
+    sequence:
+    - choose:
+      - conditions: '{{ value == ''KeyPressed'' }}'
+        sequence: !input button_1
+      - conditions: '{{ value == ''KeyPressed2x'' }}'
+        sequence: !input button_1_2x
+      - conditions: '{{ value == ''KeyPressed3x'' }}'
+        sequence: !input button_1_3x
+      - conditions: '{{ value == ''KeyPressed4x'' }}'
+        sequence: !input button_1_4x
+      - conditions: '{{ value == ''KeyPressed5x'' }}'
+        sequence: !input button_1_5x
+      - conditions: '{{ value == ''KeyHeldDown'' }}'
+        sequence: !input button_1_hold
+      - conditions: '{{ value == ''KeyReleased'' }}'
+        sequence: !input button_1_release
+  - conditions: '{{ property_key == ''002'' }}'
+    sequence:
+    - choose:
+      - conditions: '{{ value == ''KeyPressed'' }}'
+        sequence: !input button_2
+      - conditions: '{{ value == ''KeyPressed2x'' }}'
+        sequence: !input button_2_2x
+      - conditions: '{{ value == ''KeyPressed3x'' }}'
+        sequence: !input button_2_3x
+      - conditions: '{{ value == ''KeyPressed4x'' }}'
+        sequence: !input button_2_4x
+      - conditions: '{{ value == ''KeyPressed5x'' }}'
+        sequence: !input button_2_5x
+      - conditions: '{{ value == ''KeyHeldDown'' }}'
+        sequence: !input button_2_hold
+      - conditions: '{{ value == ''KeyReleased'' }}'
+        sequence: !input button_2_release
+

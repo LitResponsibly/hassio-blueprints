@@ -1,19 +1,19 @@
-# Lit Responsibly automation blueprint for Zooz ZEN32 Scene Controller
+# Lit Responsibly automation blueprint for Minoston MR40Z Remote Control Switch
 # This blueprint is designed for use with the ZWave JS integration.
 ---
 blueprint:
-  name: Zooz ZEN32 Scene Controller
-  description: Create automations for the Zooz ZEN32 Scene Controller.
+  name: Minoston MR40Z Remote Control Switch
+  description: Create automations for the Minoston MR40Z Remote Control Switch.
   domain: automation
   input:
-    zooz_zen32:
-      name: Zooz ZEN32
-      description: Available Zooz ZEN32 devices.
+    minoston_mr40z:
+      name: Minoston MR40Z
+      description: Available Minoston MR40Z devices.
       selector:
         device:
           integration: zwave_js
-          manufacturer: Zooz
-          model: ZEN32
+          manufacturer: Minoston
+          model: MR40Z
           multiple: true
     command_class:
       name: Trigger Command Class
@@ -52,26 +52,20 @@ blueprint:
           selector:
             action: {}
         button_2:
-          name: Button 2 (Middle Left) Press
+          name: Button 2 (Middle Large) Press
           description: Action to run when Button 2 is pressed one time.
           default: []
           selector:
             action: {}
         button_3:
-          name: Button 3 (Middle Right) Press
+          name: Button 3 (Bottom Left) Press
           description: Action to run when Button 3 is pressed one time.
           default: []
           selector:
             action: {}
         button_4:
-          name: Button 4 (Lower Left) Press
+          name: Button 4 (Bottom Right) Press
           description: Action to run when Button 4 is pressed one time.
-          default: []
-          selector:
-            action: {}
-        button_5:
-          name: Button 5 (Lower Right) Press
-          description: Action to run when Button 5 is pressed one time.
           default: []
           selector:
             action: {}
@@ -94,50 +88,38 @@ blueprint:
           selector:
             action: {}
         button_2_hold:
-          name: Button 2 (Middle Left) Hold
+          name: Button 2 (Middle Large) Hold
           description: Action to run when Button 2 is pressed and held.
           default: []
           selector:
             action: {}
         button_2_release:
-          name: Button 2 (Middle Left) Hold Release
+          name: Button 2 (Middle Large) Hold Release
           description: Action to run when Button 2 is released from hold.
           default: []
           selector:
             action: {}
         button_3_hold:
-          name: Button 3 (Middle Right) Hold
+          name: Button 3 (Bottom Left) Hold
           description: Action to run when Button 3 is pressed and held.
           default: []
           selector:
             action: {}
         button_3_release:
-          name: Button 3 (Middle Right) Hold Release
+          name: Button 3 (Bottom Left) Hold Release
           description: Action to run when Button 3 is released from hold.
           default: []
           selector:
             action: {}
         button_4_hold:
-          name: Button 4 (Lower Left) Hold
+          name: Button 4 (Bottom Right) Hold
           description: Action to run when Button 4 is pressed and held.
           default: []
           selector:
             action: {}
         button_4_release:
-          name: Button 4 (Lower Left) Hold Release
+          name: Button 4 (Bottom Right) Hold Release
           description: Action to run when Button 4 is released from hold.
-          default: []
-          selector:
-            action: {}
-        button_5_hold:
-          name: Button 5 (Lower Right) Hold
-          description: Action to run when Button 5 is pressed and held.
-          default: []
-          selector:
-            action: {}
-        button_5_release:
-          name: Button 5 (Lower Right) Hold Release
-          description: Action to run when Button 5 is released from hold.
           default: []
           selector:
             action: {}
@@ -154,26 +136,20 @@ blueprint:
           selector:
             action: {}
         button_2_2x:
-          name: Button 2 (Middle Left) Double Press
+          name: Button 2 (Middle Large) Double Press
           description: Action to run when Button 2 is pressed 2 times.
           default: []
           selector:
             action: {}
         button_3_2x:
-          name: Button 3 (Middle Right) Double Press
+          name: Button 3 (Bottom Left) Double Press
           description: Action to run when Button 3 is pressed 2 times.
           default: []
           selector:
             action: {}
         button_4_2x:
-          name: Button 4 (Lower Left) Double Press
+          name: Button 4 (Bottom Right) Double Press
           description: Action to run when Button 4 is pressed 2 times.
-          default: []
-          selector:
-            action: {}
-        button_5_2x:
-          name: Button 5 (Lower Right) Double Press
-          description: Action to run when Button 5 is pressed 2 times.
           default: []
           selector:
             action: {}
@@ -190,26 +166,20 @@ blueprint:
           selector:
             action: {}
         button_2_3x:
-          name: Button 2 (Middle Left) Triple Press
+          name: Button 2 (Middle Large) Triple Press
           description: Action to run when Button 2 is pressed 3 times.
           default: []
           selector:
             action: {}
         button_3_3x:
-          name: Button 3 (Middle Right) Triple Press
+          name: Button 3 (Bottom Left) Triple Press
           description: Action to run when Button 3 is pressed 3 times.
           default: []
           selector:
             action: {}
         button_4_3x:
-          name: Button 4 (Lower Left) Triple Press
+          name: Button 4 (Bottom Right) Triple Press
           description: Action to run when Button 4 is pressed 3 times.
-          default: []
-          selector:
-            action: {}
-        button_5_3x:
-          name: Button 5 (Lower Right) Triple Press
-          description: Action to run when Button 5 is pressed 3 times.
           default: []
           selector:
             action: {}
@@ -226,26 +196,20 @@ blueprint:
           selector:
             action: {}
         button_2_4x:
-          name: Button 2 (Middle Left) Quadruple Press
+          name: Button 2 (Middle Large) Quadruple Press
           description: Action to run when Button 2 is pressed 4 times.
           default: []
           selector:
             action: {}
         button_3_4x:
-          name: Button 3 (Middle Right) Quadruple Press
+          name: Button 3 (Bottom Left) Quadruple Press
           description: Action to run when Button 3 is pressed 4 times.
           default: []
           selector:
             action: {}
         button_4_4x:
-          name: Button 4 (Lower Left) Quadruple Press
+          name: Button 4 (Bottom Right) Quadruple Press
           description: Action to run when Button 4 is pressed 4 times.
-          default: []
-          selector:
-            action: {}
-        button_5_4x:
-          name: Button 5 (Lower Right) Quadruple Press
-          description: Action to run when Button 5 is pressed 4 times.
           default: []
           selector:
             action: {}
@@ -262,34 +226,28 @@ blueprint:
           selector:
             action: {}
         button_2_5x:
-          name: Button 2 (Middle Left) Quintuple Press
+          name: Button 2 (Middle Large) Quintuple Press
           description: Action to run when Button 2 is pressed 5 times.
           default: []
           selector:
             action: {}
         button_3_5x:
-          name: Button 3 (Middle Right) Quintuple Press
+          name: Button 3 (Bottom Left) Quintuple Press
           description: Action to run when Button 3 is pressed 5 times.
           default: []
           selector:
             action: {}
         button_4_5x:
-          name: Button 4 (Lower Left) Quintuple Press
+          name: Button 4 (Bottom Right) Quintuple Press
           description: Action to run when Button 4 is pressed 5 times.
           default: []
           selector:
             action: {}
-        button_5_5x:
-          name: Button 5 (Lower Right) Quintuple Press
-          description: Action to run when Button 5 is pressed 5 times.
-          default: []
-          selector:
-            action: {}
-  source_url: https://github.com/LitResponsibly/hassio-blueprints/blob/master/automation/zooz/zooz-zen32-scene-controller-scenes.yaml
+  source_url: https://github.com/LitResponsibly/hassio-blueprints/blob/master/automation/minoston/minoston-mr40z-remote-control-switch-scenes.yaml
 mode: !input automation_mode
 max_exceeded: silent
 variables:
-  device_ids: !input zooz_zen32
+  device_ids: !input minoston_mr40z
   command_class: !input command_class
 trigger:
   - platform: event
@@ -374,21 +332,4 @@ action:
         sequence: !input button_4_hold
       - conditions: '{{ value == ''KeyReleased'' }}'
         sequence: !input button_4_release
-  - conditions: '{{ property_key == ''005'' }}'
-    sequence:
-    - choose:
-      - conditions: '{{ value == ''KeyPressed'' }}'
-        sequence: !input button_5
-      - conditions: '{{ value == ''KeyPressed2x'' }}'
-        sequence: !input button_5_2x
-      - conditions: '{{ value == ''KeyPressed3x'' }}'
-        sequence: !input button_5_3x
-      - conditions: '{{ value == ''KeyPressed4x'' }}'
-        sequence: !input button_5_4x
-      - conditions: '{{ value == ''KeyPressed5x'' }}'
-        sequence: !input button_5_5x
-      - conditions: '{{ value == ''KeyHeldDown'' }}'
-        sequence: !input button_5_hold
-      - conditions: '{{ value == ''KeyReleased'' }}'
-        sequence: !input button_5_release
 
